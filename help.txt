@@ -1,0 +1,35 @@
+usage: dx help [-h] [command_or_category] [subcommand]
+
+Displays the help message for the given command (and subcommand if given), or
+displays the list of all commands in the given category.
+
+CATEGORIES
+
+  all		All commands
+  session	Manage your login session
+  fs		Navigate and organize your projects and files
+  data		View, download, and upload data
+  metadata	View and modify metadata for projects, data, and executions
+  workflow	View and modify workflows
+  exec		Manage and run apps, applets, and workflows
+  org		Administer and operate on orgs
+  other		Miscellaneous advanced utilities
+
+EXAMPLE
+
+  To find all commands related to running and monitoring a job and then display
+  the help message for the command "run", run
+
+  $ dx help exec
+    <list of all execution-related dx commands>
+  $ dx help run
+    <help message for dx run>
+
+positional arguments:
+  command_or_category  Display the help message for the given command, or the
+                       list of all available commands for the given category
+  subcommand           Display the help message for the given subcommand of
+                       the command
+
+optional arguments:
+  -h, --help           show this help message and exit

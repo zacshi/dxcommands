@@ -1,0 +1,15 @@
+usage: dx login [-h] [--env-help] [--token TOKEN] [--noprojects] [--save]
+                [--timeout TIMEOUT]
+
+Log in interactively and acquire credentials. Use "--token" to log in with an
+existing API token.
+
+optional arguments:
+  -h, --help         show this help message and exit
+  --env-help         Display help message for overriding environment variables
+  --token TOKEN      Authentication token to use
+  --noprojects       Do not print available projects
+  --save             Save token and other environment variables for future
+                     sessions
+  --timeout TIMEOUT  Timeout for this login token (in seconds, or use suffix
+                     s, m, h, d, w, M, y)

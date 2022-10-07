@@ -1,0 +1,16 @@
+usage: dx logout [-h] [--env-help] [--host HOST] [--port PORT]
+                 [--protocol PROTOCOL]
+
+Log out and remove credentials
+
+optional arguments:
+  -h, --help           show this help message and exit
+  --env-help           Display help message for overriding environment
+                       variables
+  --host HOST          Log out of the given auth server host (port must also
+                       be given)
+  --port PORT          Log out of the given auth server port (host must also
+                       be given)
+  --protocol PROTOCOL  Used in conjunction with host and port arguments, gives
+                       the protocol to use when contacting auth server
+

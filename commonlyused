@@ -1,0 +1,198 @@
+###ls 
+usage: dx ls [-h] [--color {off,on,auto}] [--delimiter [DELIMITER]]
+             [--env-help] [--brief | --verbose] [-a] [-l] [--obj] [--folders]
+             [--full]
+             [path]
+
+List folders and/or objects in a folder
+
+positional arguments:
+  path                  Folder (possibly in another project) to list the
+                        contents of, default is the current directory in the
+                        current project. Syntax: projectID:/folder/path
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --color {off,on,auto}
+                        Set when color is used (color=auto is used when stdout
+                        is a TTY)
+  --delimiter [DELIMITER], --delim [DELIMITER]
+                        Always use exactly one of DELIMITER to separate fields
+                        to be printed; if no delimiter is provided with this
+                        flag, TAB will be used
+  --env-help            Display help message for overriding environment
+                        variables
+  --brief               Display a brief version of the return value; for most
+                        commands, prints a DNAnexus ID per line
+  --verbose             If available, displays extra verbose output
+  -a, --all             show hidden files
+  -l, --long            Alias for "verbose"
+  --obj                 show only objects
+  --folders             show only folders
+  --full                show full paths of folders
+
+
+####tree
+usage: dx tree [-h] [--color {off,on,auto}] [--env-help] [-a] [-l] [path]
+
+List folders and objects in a tree
+
+positional arguments:
+  path                  Folder (possibly in another project) to list the
+                        contents of, default is the current directory in the
+                        current project. Syntax: projectID:/folder/path
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --color {off,on,auto}
+                        Set when color is used (color=auto is used when stdout
+                        is a TTY)
+  --env-help            Display help message for overriding environment
+                        variables
+  -a, --all             show hidden files
+  -l, --long            use a long listing format
+
+
+###pwd
+usage: dx pwd [-h] [--env-help]
+
+Print current working directory
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --env-help  Display help message for overriding environment variables
+
+###select
+usage: dx select [-h] [--env-help] [--name NAME]
+                 [--level {VIEW,UPLOAD,CONTRIBUTE,ADMINISTER}] [--public]
+                 [project]
+
+Interactively list and select a project to switch to. By default, only lists
+projects for which you have at least CONTRIBUTE permissions. Use --public to
+see the list of public projects.
+
+positional arguments:
+  project               Name or ID of a project to switch to; if not provided
+                        a list will be provided for you
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --env-help            Display help message for overriding environment
+                        variables
+  --name NAME           Name of the project (wildcard patterns supported)
+  --level {VIEW,UPLOAD,CONTRIBUTE,ADMINISTER}
+                        Minimum level of permissions expected
+  --public              Include ONLY public projects (will automatically set
+                        --level to VIEW)
+
+###cd
+usage: dx cd [-h] [--env-help] [path]
+
+Change the current working directory
+
+positional arguments:
+  path        Folder (possibly in another project) to which to change the
+              current working directory, default is "/" in the current project
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --env-help  Display help message for overriding environment variables
+
+
+###cp
+usage: dx cp [-h] [--env-help] [-a] source [source ...] destination
+
+Copy objects and/or folders between different projects.  Folders will
+automatically be copied recursively.  To specify which project to use as a
+source or destination, prepend the path or ID of the object/folder with the
+project ID or name and a colon.
+
+EXAMPLES
+
+  The first example copies a file in a project called "FirstProj" to the
+  current directory of the current project.  The second example copies the
+  object named "reads.fq.gz" in the current directory to the folder
+  /folder/path in the project with ID "project-B0VK6F6gpqG6z7JGkbqQ000Q",
+  and finally renaming it to "newname.fq.gz".
+
+  $ dx cp FirstProj:file-B0XBQFygpqGK8ZPjbk0Q000q .
+  $ dx cp reads.fq.gz project-B0VK6F6gpqG6z7JGkbqQ000Q:/folder/path/newname.fq.gz
+
+positional arguments:
+  source       Objects and/or folder names to copy
+  destination  Folder into which to copy the sources or new pathname (if only
+               one source is provided).  Must be in a different
+               project/container than all source paths.
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --env-help   Display help message for overriding environment
+               variables
+  -a, --all    Apply to all results with the same name without
+               prompting
+
+
+###mv
+usage: dx mv [-h] [--env-help] [-a] source [source ...] destination
+
+Move or rename data objects and/or folders inside a single project.  To copy
+data between different projects, use 'dx cp' instead.
+
+positional arguments:
+  source       Objects and/or folder names to move
+  destination  Folder into which to move the sources or new pathname (if only
+               one source is provided).  Must be in the same project/container
+               as all source paths.
+
+optional arguments:
+  -h, --help   show this help message and exit
+  --env-help   Display help message for overriding environment
+               variables
+  -a, --all    Apply to all results with the same name without
+               prompting
+
+
+###mkdir 
+usage: dx mkdir [-h] [--env-help] [-p] path [path ...]
+
+Create a new folder
+
+positional arguments:
+  path           Paths to folders to create
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --env-help     Display help message for overriding environment variables
+  -p, --parents  no error if existing, create parent directories as needed
+
+
+###rmdir
+usage: dx rmdir [-h] [--env-help] path [path ...]
+
+Remove a folder
+
+positional arguments:
+  path        Paths to folders to remove
+
+optional arguments:
+  -h, --help  show this help message and exit
+  --env-help  Display help message for overriding environment variables
+
+###rm
+usage: dx rm [-h] [--env-help] [-a] [-r] [-f] path [path ...]
+
+Remove data objects and folders.
+
+positional arguments:
+  path             Paths to remove
+
+optional arguments:
+  -h, --help       show this help message and exit
+  --env-help       Display help message for overriding environment variables
+  -a, --all        Apply to all results with the same name without prompting
+  -r, --recursive  Recurse into a directory
+  -f, --force      Force removal of files
+
+
+
+
